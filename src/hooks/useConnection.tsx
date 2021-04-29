@@ -161,7 +161,6 @@ export const ConnectionProvider: React.FC = ({ children }) => {
     chainId,
     connector,
     error,
-
     connect,
     disconnect,
     update,

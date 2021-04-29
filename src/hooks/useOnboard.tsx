@@ -1,6 +1,10 @@
 import React from "react";
 import { Wallet } from "bnc-onboard/dist/src/interfaces";
 import Onboard from "bnc-onboard";
+<<<<<<< HEAD
+=======
+import { ethers } from "ethers";
+>>>>>>> 15504e5 (feat(claim-dapp): separate useConnection from Onboard)
 
 import { useConnection } from "./useConnection";
 import { onboardBaseConfig } from "../config";
@@ -29,10 +33,21 @@ export function useOnboard() {
           },
           wallet: async (wallet: Wallet) => {
             if (wallet.provider) {
+<<<<<<< HEAD
               const provider = wallet.provider;
 
               update({
                 provider,
+=======
+              const provider = new ethers.providers.Web3Provider(
+                wallet.provider
+              );
+              const signer = provider.getSigner();
+
+              update({
+                provider,
+                signer,
+>>>>>>> 15504e5 (feat(claim-dapp): separate useConnection from Onboard)
               });
             }
           },
